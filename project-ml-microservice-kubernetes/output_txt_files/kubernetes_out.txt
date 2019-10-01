@@ -1,1 +1,22 @@
-<paste log output from Kubernetes-mediated prediction, here>
+[Terminal 1]
+(.devops) riei1@riei1-Diginnos-PC:~/version-control/project-ml-microservice-kubernetes$ ./run_kubernetes.sh 
+deployment.apps/machine-learning-microservice created
+NAME                      READY   STATUS              RESTARTS   AGE
+machine-learning-microservice-5796b76dc4-nn8l6   0/1     ContainerCreating   0          0s
+error: unable to forward port because pod is not running. Current status=Pending
+(.devops) riei1@riei1-Diginnos-PC:~/version-control/project-ml-microservice-kubernetes$ ./run_kubernetes.sh 
+Error from server (AlreadyExists): deployments.apps "machine-learning-microservice" already exists
+NAME                      READY   STATUS    RESTARTS   AGE
+machine-learning-microservice-5796b76dc4-nn8l6   1/1     Running   0          7m40s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+[Terminal 2]
+(.devops) riei1@riei1-Diginnos-PC:~/version-control/project-ml-microservice-kubernetes$ ./make_prediction.sh 
+Port: 8000
+{
+  "prediction": [
+    20.35341273177134
+  ]
+}
